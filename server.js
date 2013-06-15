@@ -45,7 +45,7 @@ app.post('/respondToSMS', function(req, res) {
     client.sms.messages.create({
         to:'+17028584082',
         from:'+17028007236',
-        body: message
+        body: message.toString()
     }, function(error, message) {
         
         // The HTTP request to Twilio will run asynchronously.  This callback
@@ -68,7 +68,7 @@ app.post('/respondToSMS', function(req, res) {
             console.log('Oops! There was an error.');
         }
     });
-    res.send(message + twiml, {'Content-Type':'text/xml'}, 200);
+    res.send(message +  twiml, {'Content-Type':'text/xml'}, 200);
     
 });
 
