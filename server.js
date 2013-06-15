@@ -8,7 +8,7 @@ app.post('/respondToVoiceCall', function(req, res) {
     if (twilio.validateExpressRequest(req, 'AP49f5d5ea8d83a04e1eef15679e875092')) {
         var twiml = new twilio.TwimlResponse();
 
-        twiml.say('I want to win the prize. If I have to I will punch you in the eye');
+        twiml.say('I want to win the prize If I have to I will punch you in the eye');
 
         res.type('text/xml');
         res.send(twiml.toString());
@@ -16,10 +16,35 @@ app.post('/respondToVoiceCall', function(req, res) {
     else {
         //res.send('you are not twilio.  Buzz off. your port is: ' + port);
         var twiml = new twilio.TwimlResponse();
-        twiml.say('I want to win the prize. If I have to I will punch you in the eye');
+        twiml.say('I want to win the prize If I have to I will punch you in the eye');
 
         res.type('text/xml');
         res.send(twiml.toString());
+    }
+    
+});
+
+app.post('/respondToSMS', function(req, res) {
+    //Validate that this request really came from Twilio...
+    if (twilio.validateExpressRequest(req, 'AP49f5d5ea8d83a04e1eef15679e875092')) {
+        var twiml = new twilio.TwimlResponse();
+
+        twiml.say('I want to win the prize If I have to I will punch you in the eye');
+
+        res.type('text/xml');
+        res.send(twiml.toString());
+    }
+    else {
+        response.header('Content-Type', 'text/xml');
+        var body = request.param('Body').trim().toLowerCase();
+        if (body == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
+        {
+            response.send('<Response><Sms>nailed it!</Sms></Response>');
+        }
+        else
+        {
+            response.send('<Response><Sms>nope. that was not it!</Sms></Response>');
+        }
     }
     
 });
