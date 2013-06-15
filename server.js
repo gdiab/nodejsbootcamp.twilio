@@ -4,11 +4,7 @@ var twilio = require('twilio');
 var port = process.env.port || 1337;
 app.use(express.bodyParser());
 
-app.get('/', function(req, res) {
-    //Validate that this request really came from Twilio...
-    res.send('send an SMS message "play" to (702) 800-7236 to begin', 'Content-Type':'text/xml'}, 200);
-    
-});
+app.use(express.static(__dirname + '/public'));
 
 app.post('/respondToVoiceCall', function(req, res) {
     //Validate that this request really came from Twilio...
