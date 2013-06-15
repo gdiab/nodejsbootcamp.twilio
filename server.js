@@ -28,14 +28,14 @@ app.post('/respondToSMS', function(req, res) {
     //Validate that this request really came from Twilio...
     var body = '';//req.param('Body').trim().toLowerCase();
     var twiml = new twilio.TwimlResponse();
-    if (body == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
-    {
+    //if (body == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
+    //{
         twiml.say('nailed it!');
-    }
-    else
-    {
-        twiml.say('doh!');
-    }
+    //}
+    //else
+    //{
+    //    twiml.say('doh!');
+    //}
 
     
 });
