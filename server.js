@@ -29,10 +29,10 @@ app.post('/respondToSMS', function(req, res) {
     //Validate that this request really came from Twilio...
     var message = req.body.Body;
     var from = req.body.From;
-    var sms = '';
+    var sms = 'error';
     var compareString = 'i want to win the prize if I have to i will punch you in the eye';
     var twiml = new twilio.TwimlResponse();
-    if (message.toString() == compareString)
+    if (message == compareString)
     {
         sms = 'Yup! Nailed it!';
     }
