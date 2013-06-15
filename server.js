@@ -33,11 +33,11 @@ app.post('/respondToSMS', function(req, res) {
     var twiml = new twilio.TwimlResponse();
     if (message.toString() == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
     {
-        sms = 'nailed it!';
+        sms = 'Yup! Nailed it!';
     }
     else
     {
-        sms = 'doh!';
+        sms = 'doh! That''s not what I said!;
     }
     //res.type('text/xml');
     //twiml.sms(message);
