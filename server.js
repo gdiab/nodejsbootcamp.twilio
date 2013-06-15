@@ -16,6 +16,11 @@ app.post('/respondToVoiceCall', function(req, res) {
     else {
         res.send('you are not twilio.  Buzz off.' + req);
     }
+    //Render the TwiML document using "toString"
+    res.writeHead(200, {
+        'Content-Type':'text/xml'
+    });
+    
 });
 
 app.listen(port);
