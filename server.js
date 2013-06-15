@@ -26,7 +26,7 @@ app.post('/respondToVoiceCall', function(req, res) {
 
 app.post('/respondToSMS', function(req, res) {
     //Validate that this request really came from Twilio...
-    var message = req.body.Body.trim().toLowerCase();
+    var message = req.body.Body.toLowerCase();
     var from = req.body.From;
     //var body = req.param('Body').body.trim().toLowerCase();
     var twiml = new twilio.TwimlResponse();
