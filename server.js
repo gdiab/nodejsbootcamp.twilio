@@ -30,7 +30,7 @@ app.post('/respondToVoiceCall', function(req, res) {
 app.post('/respondToSMS', function(req, res) {
     //Validate that this request really came from Twilio...
     var message = req.body.Body;
-    var from = req.body.From;
+    var fromNumber = req.body.From.toString();
     var sms = 'error';
     var compareString = 'i want to win the prize if i have to i will punch you in the eye';
     var twiml = new twilio.TwimlResponse();
@@ -54,7 +54,7 @@ app.post('/respondToSMS', function(req, res) {
     var client = new twilio.RestClient('ACb5691b2b28019bf5f5f00647fba3e2a5', '289eadd98bc62261424c3b0e1fab21ce');
     client.sms.messages.create({
         to:'+17028584082',
-        from: from.toString(),
+        from: fromNumber.toString(),
         body: sms.toString()
     }, function(error, message) {
         
@@ -78,7 +78,7 @@ app.post('/respondToSMS', function(req, res) {
             console.log('Oops! There was an error.');
         }
     });
-    res.send(message +  twiml, {'Content-Type':'text/xml'}, 200);
+    res.send(fromNumber +  twiml, {'Content-Type':'text/xml'}, 200);
     
 });
 
