@@ -37,7 +37,7 @@ app.post('/respondToSMS', function(req, res) {
     //    twiml.say('doh!');
     //}
     res.type('text/xml');
-    res.send(twiml.toString());
+    res.send(twiml, {'Content-Type':'text/xml'}, 200);
     
 });
 
