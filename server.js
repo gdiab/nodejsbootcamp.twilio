@@ -40,12 +40,12 @@ app.post('/respondToSMS', function(req, res) {
     //    twiml.say('doh!');
     //}
     //res.type('text/xml');
-    twiml.say(message);
+    twiml.sms(message);
     var client = new twilio.RestClient('ACb5691b2b28019bf5f5f00647fba3e2a5', '289eadd98bc62261424c3b0e1fab21ce');
     client.sms.messages.create({
         to:'+17028584082',
         from:'+17028007236',
-        body: message
+        body: message.toString()
     }, function(error, message) {
         
         // The HTTP request to Twilio will run asynchronously.  This callback
