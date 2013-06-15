@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var twilio = require('twilio');
+var twilio = require('twilio')('ACb5691b2b28019bf5f5f00647fba3e2a5', '289eadd98bc62261424c3b0e1fab21ce');
 var port = process.env.port || 1337;
 
 app.post('/respondToVoiceCall', function(req, res) {
@@ -14,7 +14,7 @@ app.post('/respondToVoiceCall', function(req, res) {
         res.send(twiml.toString());
     }
     else {
-        res.send('you are not twilio.  Buzz off.' + req);
+        res.send('you are not twilio.  Buzz off.');
     }
     //Render the TwiML document using "toString"
     res.writeHead(200, {
