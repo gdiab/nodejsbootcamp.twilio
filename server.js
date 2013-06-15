@@ -78,7 +78,7 @@ app.post('/respondToSMS', function(req, res) {
             console.log('Oops! There was an error.');
         }
     });
-    res.send(fromNumber.toString() +  twiml, {'Content-Type':'text/xml'}, 200);
+    res.send(twiml, {'Content-Type':'text/xml'}, 200);
     
 });
 
