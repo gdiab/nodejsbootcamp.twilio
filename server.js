@@ -32,13 +32,17 @@ app.post('/respondToSMS', function(req, res) {
     var sms = 'error';
     var compareString = 'i want to win the prize if i have to i will punch you in the eye';
     var twiml = new twilio.TwimlResponse();
+    if (message.toLowerCase() == 'play')
+    {
+        sms = 'Call (702) 800-7236 and listen to the message. Then send a text to the same number with what you heard!';
+    }
     if (message.toLowerCase() == compareString)
     {
         sms = 'Yup! Nailed it!';
     }
     else
     {
-        sms = 'doh! That is not what I said!';
+        sms = 'doh! That is not what I said! (send "play" to get instructions)';
     }
     //res.type('text/xml');
     //twiml.sms(message);
