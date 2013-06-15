@@ -5,7 +5,7 @@ var port = process.env.port || 1337;
 
 app.post('/respondToVoiceCall', function(req, res) {
     //Validate that this request really came from Twilio...
-    if (twilio.validateExpressRequest(req, '289eadd98bc62261424c3b0e1fab21ce')) {
+    if (twilio.validateExpressRequest(req, 'AP49f5d5ea8d83a04e1eef15679e875092')) {
         var twiml = new twilio.TwimlResponse();
 
         twiml.say('I want to win the prize. If I have to I will punch you in the eye');
