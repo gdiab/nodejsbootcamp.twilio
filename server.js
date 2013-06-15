@@ -28,13 +28,14 @@ app.post('/respondToSMS', function(req, res) {
     //Validate that this request really came from Twilio...
     res.header('Content-Type', 'text/xml');
     var body = req.param('Body').trim().toLowerCase();
+    var twiml = new twilio.TwimlResponse();
     if (body == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
     {
-        res.send('<Response><Sms>nailed it!</Sms></Response>');
+        twiml.say('nailed it!');
     }
     else
     {
-        res.send('<Response><Sms>nope. that was not it!</Sms></Response>');
+        twiml.say('doh!');
     }
 
     
