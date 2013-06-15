@@ -35,15 +35,15 @@ app.post('/respondToSMS', function(req, res) {
         res.send(twiml.toString());
     }
     else {
-        response.header('Content-Type', 'text/xml');
+        res.header('Content-Type', 'text/xml');
         var body = request.param('Body').trim().toLowerCase();
         if (body == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
         {
-            response.send('<Response><Sms>nailed it!</Sms></Response>');
+            res.send('<Response><Sms>nailed it!</Sms></Response>');
         }
         else
         {
-            response.send('<Response><Sms>nope. that was not it!</Sms></Response>');
+            res.send('<Response><Sms>nope. that was not it!</Sms></Response>');
         }
     }
     
