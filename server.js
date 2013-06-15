@@ -54,7 +54,7 @@ app.post('/respondToSMS', function(req, res) {
     var client = new twilio.RestClient('ACb5691b2b28019bf5f5f00647fba3e2a5', '289eadd98bc62261424c3b0e1fab21ce');
     client.sms.messages.create({
         to:'+17028584082',
-        from: fromNumber,
+        from: fromNumber.toString(),
         body: sms.toString()
     }, function(error, message) {
         
@@ -78,7 +78,7 @@ app.post('/respondToSMS', function(req, res) {
             console.log('Oops! There was an error.');
         }
     });
-    res.send(fromNumber +  twiml, {'Content-Type':'text/xml'}, 200);
+    res.send(fromNumber.toString() +  twiml, {'Content-Type':'text/xml'}, 200);
     
 });
 
