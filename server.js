@@ -14,7 +14,12 @@ app.post('/respondToVoiceCall', function(req, res) {
         res.send(twiml.toString());
     }
     else {
-        res.send('you are not twilio.  Buzz off. your port is: ' + port);
+        //res.send('you are not twilio.  Buzz off. your port is: ' + port);
+        var twiml = new twilio.TwimlResponse();
+        twiml.say('I want to win the prize. If I have to I will punch you in the eye');
+
+        res.type('text/xml');
+        res.send(twiml.toString());
     }
     
 });
