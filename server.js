@@ -30,8 +30,9 @@ app.post('/respondToSMS', function(req, res) {
     var message = req.body.Body;
     var from = req.body.From;
     var sms = '';
+    var compareString = 'i want to win the prize if I have to i will punch you in the eye';
     var twiml = new twilio.TwimlResponse();
-    if (message.toString() == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
+    if (message.toString().toLowerCase() == compareString)
     {
         sms = 'Yup! Nailed it!';
     }
