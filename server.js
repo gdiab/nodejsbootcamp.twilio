@@ -32,7 +32,7 @@ app.post('/respondToSMS', function(req, res) {
     var sms = 'error';
     var compareString = 'i want to win the prize if I have to i will punch you in the eye';
     var twiml = new twilio.TwimlResponse();
-    if (message.toString() == compareString.toString())
+    if (message == compareString)
     {
         sms = 'Yup! Nailed it!';
     }
@@ -46,7 +46,7 @@ app.post('/respondToSMS', function(req, res) {
     client.sms.messages.create({
         to:'+17028584082',
         from:'+17028007236',
-        body: sms.toString()
+        body: sms
     }, function(error, message) {
         
         // The HTTP request to Twilio will run asynchronously.  This callback
