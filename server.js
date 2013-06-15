@@ -26,7 +26,9 @@ app.post('/respondToVoiceCall', function(req, res) {
 
 app.post('/respondToSMS', function(req, res) {
     //Validate that this request really came from Twilio...
-    var body = '';//req.param('Body').trim().toLowerCase();
+    var message = req.body.Body.trim().toLowerCase();
+    var from = req.body.From;
+    //var body = req.param('Body').body.trim().toLowerCase();
     var twiml = new twilio.TwimlResponse();
     //if (body == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
     //{
@@ -42,7 +44,7 @@ app.post('/respondToSMS', function(req, res) {
     client.sms.messages.create({
         to:'+17028584082',
         from:'+17028007236',
-        body:'ahoy hoy! Testing Twilio and node.js'
+        body: message
     }, function(error, message) {
         
         // The HTTP request to Twilio will run asynchronously.  This callback
