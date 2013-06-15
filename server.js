@@ -36,7 +36,7 @@ app.post('/respondToSMS', function(req, res) {
     }
     else {
         res.header('Content-Type', 'text/xml');
-        var body = request.param('Body').trim().toLowerCase();
+        var body = req.param('Body').trim().toLowerCase();
         if (body == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
         {
             res.send('<Response><Sms>nailed it!</Sms></Response>');
