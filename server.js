@@ -19,7 +19,7 @@ app.post('/respondToVoiceCall', function(req, res) {
     else {
         //res.send('you are not twilio.  Buzz off. your port is: ' + port);
         var twiml = new twilio.TwimlResponse();
-        twiml.say('I want to win the prize If I have to I will punch you in the eye');
+        twiml.say('text win the prize back to this number');
 
         res.type('text/xml');
         res.send(twiml.toString());
@@ -32,11 +32,11 @@ app.post('/respondToSMS', function(req, res) {
     var message = req.body.Body;
     var fromNumber = req.body.From;
     var sms = 'error';
-    var compareString = 'i want to win the prize if i have to i will punch you in the eye';
+    var compareString = 'win the prize';
     var twiml = new twilio.TwimlResponse();
     if (message.toLowerCase() == 'play')
     {
-        sms = 'Call (702) 800-7236 and listen to the message. Then send a text to the same number with what you heard!';
+        sms = 'Call (702) 800-7236 to play! Listen to the message. Then send a text to the same number with what you heard!';
     }
     else
     {
