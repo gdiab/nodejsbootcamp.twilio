@@ -29,23 +29,23 @@ app.post('/respondToSMS', function(req, res) {
     //Validate that this request really came from Twilio...
     var message = req.body.Body;
     var from = req.body.From;
-    //var body = req.param('Body').body.trim().toLowerCase();
+    var sms = '';
     var twiml = new twilio.TwimlResponse();
-    //if (body == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
-    //{
-    //    twiml.say('nailed it!');
-    //}
-    //else
-    //{
-    //    twiml.say('doh!');
-    //}
+    if (message.toString() == 'I want to win the prize If I have to I will punch you in the eye'.toLowerCase())
+    {
+        sms = 'nailed it!';
+    }
+    else
+    {
+        sms = 'doh!';
+    }
     //res.type('text/xml');
     //twiml.sms(message);
     var client = new twilio.RestClient('ACb5691b2b28019bf5f5f00647fba3e2a5', '289eadd98bc62261424c3b0e1fab21ce');
     client.sms.messages.create({
         to:'+17028584082',
         from:'+17028007236',
-        body: message.toString()
+        body: sms.toString()
     }, function(error, message) {
         
         // The HTTP request to Twilio will run asynchronously.  This callback
