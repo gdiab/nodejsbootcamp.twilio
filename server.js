@@ -55,7 +55,7 @@ app.post('/respondToSMS', function(req, res) {
     client.sms.messages.create({
         to:'+17028584082',
         from: '+17028584082',
-        body: sms.toString() + fromNumber
+        body: sms.toString()
     }, function(error, message) {
         
         // The HTTP request to Twilio will run asynchronously.  This callback
